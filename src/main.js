@@ -3,12 +3,13 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import messagePlugin from "@/utils/message.plugin";
+import Loader from "@/components/app/Loader";
+import currencyFilter from '@/filters/currency.filter'
 import "./registerServiceWorker";
 import "materialize-css/dist/js/materialize.min";
 
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-// import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCkSh4C159tnB1o4JZMpvLteZjQW7ZXxdY",
@@ -22,11 +23,6 @@ const firebaseConfig = {
   measurementId: "G-86S9RDNDT3",
 };
 
-// const app = initializeApp(firebaseConfig);
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
-// const database = getDatabase(app);
-
 let app;
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -35,10 +31,10 @@ const auth = getAuth(firebaseApp);
 onAuthStateChanged(auth, user => {
   if (!app) {
     app = createApp(App).use(store).use(router).use(messagePlugin);
+    app.component("Loader", Loader);
+    app.config.globalProperties.$filters = {
+      currency: currencyFilter,
+    };
     app.mount("#app");
   }
 });
-
-// onAuthStateChanged(auth, user => {
-//       createApp(App).use(store).use(router).use(messagePlugin).mount("#app");
-// });

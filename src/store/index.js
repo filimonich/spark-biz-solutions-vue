@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import auth from "./auth";
+import info from "./info";
 
 export default createStore({
   state: {
@@ -16,8 +17,17 @@ export default createStore({
       state.error = null;
     },
   },
-  actions: {},
+  actions: {
+    async fetchCurrency() {
+      const key = process.env.VUE_APP_FIXER;
+      const res = await fetch(
+        `https://openexchangerates.org/api/latest.json?app_id=${key}&symbols=USD,EUR,RUB`
+      );
+      return await res.json();
+    },
+  },
   modules: {
     auth,
+    info,
   },
 });

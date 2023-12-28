@@ -1,7 +1,34 @@
-import { getDatabase, push, ref } from "firebase/database";
+import { getDatabase, ref, push, get, update } from "firebase/database";
 
 export default {
   actions: {
+    async fetchCategories({ commit, dispatch }) {
+      try {
+        const uid = await dispatch("getUid");
+        const db = getDatabase();
+        const categoriesRef = ref(db, `users/${uid}/categories`);
+        const categoriesSnapshot = await get(categoriesRef);
+        const categories = categoriesSnapshot.val() || {};
+        return Object.keys(categories).map(key => ({
+          ...categories[key],
+          id: key,
+        }));
+      } catch (e) {
+        commit("setError", e);
+        throw e;
+      }
+    },
+    async updateCategory({ commit, dispatch }, { title, limit, id }) {
+      try {
+        const uid = await dispatch("getUid");
+        const db = getDatabase();
+        const categoryRef = ref(db, `users/${uid}/categories/${id}`);
+        await update(categoryRef, { title, limit });
+      } catch (e) {
+        commit("setError", e);
+        throw e;
+      }
+    },
     async createCategory({ commit, dispatch }, { title, limit }) {
       try {
         const uid = await dispatch("getUid");

@@ -35,7 +35,6 @@ export default {
   }),
   methods: {
     formattedDate() {
-      // console.log(this.timestamp);
       const date = new Date(this.timestamp * 1000);
       return date.toLocaleDateString();
     }

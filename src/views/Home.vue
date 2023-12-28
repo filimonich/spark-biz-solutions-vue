@@ -24,7 +24,6 @@
 <script>
 import HomeBill from "@/components/HomeBill";
 import HomeCurrency from "@/components/HomeCurrency";
-// import { ref } from "firebase/database";
 
 export default {
   name: "home",

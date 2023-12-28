@@ -5,7 +5,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
-import { getCurrentUser } from "firebase/auth";
+// import { getCurrentUser } from "firebase/auth";
 
 export default {
   actions: {

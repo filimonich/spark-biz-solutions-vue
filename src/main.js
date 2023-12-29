@@ -4,7 +4,8 @@ import router from "./router";
 import store from "./store";
 import messagePlugin from "@/utils/message.plugin";
 import Loader from "@/components/app/Loader";
-import currencyFilter from '@/filters/currency.filter'
+import currencyFilter from "@/filters/currency.filter";
+import tooltipDirective from "@/directives/tooltip.directive";
 import "./registerServiceWorker";
 import "materialize-css/dist/js/materialize.min";
 
@@ -31,6 +32,7 @@ const auth = getAuth(firebaseApp);
 onAuthStateChanged(auth, user => {
   if (!app) {
     app = createApp(App).use(store).use(router).use(messagePlugin);
+    app.directive("tooltip", tooltipDirective);
     app.component("Loader", Loader);
     app.config.globalProperties.$filters = {
       currency: currencyFilter,

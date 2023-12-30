@@ -18,6 +18,19 @@ export default {
         throw e;
       }
     },
+    async fetchCategoryById({ commit, dispatch }, id) {
+      try {
+        const uid = await dispatch("getUid");
+        const database = getDatabase();
+        const categoryRef = ref(database, `users/${uid}/categories/${id}`);
+        const snapshot = await get(categoryRef);
+        const category = snapshot.val() || {};
+        return { ...category, id };
+      } catch (e) {
+        commit("setError", e);
+        throw e;
+      }
+    },
     async updateCategory({ commit, dispatch }, { title, limit, id }) {
       try {
         const uid = await dispatch("getUid");

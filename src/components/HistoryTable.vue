@@ -14,7 +14,7 @@
     <tbody>
       <tr v-for="(record, idx) in records" :key="record.id">
         <td>{{ idx + 1 }}</td>
-        <td>{{ record.amount }}</td>
+        <td>{{ formatAmount(record.amount) }}</td>
         <td>{{ formatDate(record.date) }}</td>
         <td>{{ record.categoryName }}</td>
         <td>
@@ -46,6 +46,14 @@ export default {
     },
     formatDate(date) {
       return new Date(date).toLocaleString();
+    },
+    formatAmount(amount) {
+      const formatter = new Intl.NumberFormat("ru-RU", {
+        style: "currency",
+        currency: "RUB",
+        minimumFractionDigits: 2,
+      });
+      return formatter.format(amount);
     },
   },
 };

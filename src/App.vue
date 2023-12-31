@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import EmptyLayout from "@/layouts/EmptyLayout";
+import EmptyLayout from "@/layouts/Emptylayout";
 import MainLayout from "@/layouts/MainLayout";
 export default {
   computed: {

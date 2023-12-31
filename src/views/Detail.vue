@@ -10,10 +10,13 @@
       </div>
       <div class="row">
         <div class="col s12 m6">
-          <div class="card" :class="{
-            red: record.type === 'outcome',
-            green: record.type === 'income',
-          }">
+          <div
+            class="card"
+            :class="{
+              red: record.type === 'outcome',
+              green: record.type === 'income',
+            }"
+          >
             <div class="card-content white-text">
               <p>Описание: {{ record.description }}</p>
               <p>Сумма: {{ formatAmount(record.amount) }}</p>

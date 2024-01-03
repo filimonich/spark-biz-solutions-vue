@@ -15,16 +15,17 @@
 
 <script>
 import { ref } from "vue";
+import localizeFilter from '@/filters/localize.filter'
 
 export default {
   props: ["value"],
   setup() {
     const links = ref([
-      { title: "Счет", url: "/" },
-      { title: "История", url: "/history" },
-      { title: "Планирование", url: "/planning" },
-      { title: "Новая запись", url: "/record" },
-      { title: "Категории", url: "/categories" },
+      { title: localizeFilter("Menu_Bill"), url: "/", exact: true },
+      { title: localizeFilter("Menu_History"), url: "/history" },
+      { title: localizeFilter("Menu_Planning"), url: "/planning" },
+      { title: localizeFilter("Menu_NewRecord"), url: "/record" },
+      { title: localizeFilter("Menu_Categories"), url: "/categories" },
     ]);
 
     return {

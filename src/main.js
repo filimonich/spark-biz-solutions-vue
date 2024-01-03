@@ -5,6 +5,7 @@ import store from "./store";
 import messagePlugin from "@/utils/message.plugin";
 import Loader from "@/components/app/Loader";
 import currencyFilter from "@/filters/currency.filter";
+import localizeFilter from "@/filters/localize.filter";
 import tooltipDirective from "@/directives/tooltip.directive";
 import "./registerServiceWorker";
 import "materialize-css/dist/js/materialize.min";
@@ -36,6 +37,7 @@ onAuthStateChanged(auth, user => {
     app.component("Loader", Loader);
     app.config.globalProperties.$filters = {
       currency: currencyFilter,
+      localize: localizeFilter,
     };
     app.mount("#app");
   }

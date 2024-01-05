@@ -66,6 +66,11 @@ import { email, required, minLength, helpers } from "@vuelidate/validators";
 import messages from "@/utils/messages";
 
 export default {
+  head() {
+    return {
+      title: this.$title("Login"),
+    };
+  },
   setup: () => {
     return { v$: useVuelidate() };
   },

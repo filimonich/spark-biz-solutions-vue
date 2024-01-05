@@ -98,6 +98,11 @@ import { required, minValue } from "@vuelidate/validators";
 import { mapGetters } from "vuex";
 export default {
   name: "record",
+  head() {
+    return {
+      title: this.$title("Menu_NewRecord"),
+    };
+  },
   setup: () => {
     return { v$: useVuelidate() };
   },

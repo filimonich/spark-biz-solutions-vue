@@ -88,6 +88,11 @@ import { useVuelidate } from "@vuelidate/core";
 import { email, required, minLength, helpers } from "@vuelidate/validators";
 
 export default {
+  head() {
+    return {
+      title: this.$title("Register"),
+    };
+  },
   setup: () => {
     return { v$: useVuelidate() };
   },

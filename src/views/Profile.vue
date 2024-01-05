@@ -45,7 +45,13 @@
 import { mapGetters, mapActions } from "vuex";
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
+import localeFilter from "@/filters/localize.filter";
 export default {
+  head() {
+    return {
+      title: this.$title("ProfileTitle"),
+    };
+  },
   data: () => ({
     name: "",
     isRuLocale: true,

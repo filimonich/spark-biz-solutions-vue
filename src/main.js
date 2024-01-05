@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { VueHeadMixin, createHead, usehead  } from "@unhead/vue";
+import { VueHeadMixin, createHead  } from "@unhead/vue";
 import store from "./store";
 import messagePlugin from "@/utils/message.plugin";
 import Loader from "@/components/app/Loader";

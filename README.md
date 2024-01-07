@@ -10,35 +10,25 @@
 
 Если вы хотите запустить приложение локально, вы можете выполнить следующие шаги:
 
-1. Клонируйте репозиторий на свой компьютер:
-
+## 1. Клонируйте репозиторий на свой компьютер:
 ````bash
  git clone https://github.com/your-username/your-repo.git
-
-```bash
-2. cd your-repo
-
-## Project setup
 ````
-
+## 2. Перейдите в директорию проекта
+````
+cd your-repo
+````
+## 4. Project setup
+````
 npm install
-
-```
-
-### Compiles and hot-reloads for development
-```
-
+````
+### 5. Compiles and hot-reloads for development
+````
 npm run serve
-
-```
-
-### Compiles and minifies for production
-```
-
+````
+### 6. Compiles and minifies for production
+````
 npm run build
-
-```
-
+````
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-```

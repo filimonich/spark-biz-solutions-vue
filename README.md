@@ -4,7 +4,9 @@
 
 ## Адрес приложения
 
-Вы можете найти мое приложение по следующему адресу: [https://spark-biz-solutions-vue.web.app/register](https://spark-biz-solutions-vue.web.app/register)
+Вы можете найти мое приложение по следующему адресу:
+
+[https://spark-biz-solutions-vue.web.app/register](https://spark-biz-solutions-vue.web.app/register)
 
 ## Установка и запуск
 
